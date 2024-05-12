@@ -29,6 +29,7 @@ public class ChatClient extends UnicastRemoteObject implements IChatClient {
 
     public void startClient() throws RemoteException {
         String[] details = {name, host, clientService};
+
 		try {
 			Naming.rebind("rmi://" + host + "/" + clientService, this);
 			IServer = ( IChatServer )Naming.lookup("rmi://" + host + "/" + service);	
@@ -49,6 +50,7 @@ public class ChatClient extends UnicastRemoteObject implements IChatClient {
 		}	
 		System.out.println("Le serveur RMI est en cours d'écoute...\n");
     }
+
     public void registerWithServer(String[] details) {
         try {
             IServer.passIdentity(this.ref);
@@ -57,12 +59,14 @@ public class ChatClient extends UnicastRemoteObject implements IChatClient {
             e.printStackTrace();
         }
     }
+
     @Override
     public void messageFromServer(String message) throws RemoteException {
         System.out.println(message);
         chatUI.textArea.append(message);
         chatUI.textArea.setCaretPosition(chatUI.textArea.getDocument().getLength());
     }
+
     @Override
     public void updateUserList(String[] currentUsers) throws RemoteException {
         if (currentUsers.length < 2) {
