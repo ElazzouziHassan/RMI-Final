@@ -97,7 +97,7 @@ public class ChatUI extends JFrame implements ActionListener {
 
     public JPanel getTextPanel() {
         String welcome = "Bienvenue, entrez votre nom et appuyez sur Démarrer pour commencer\n";
-        textArea = new JTextArea(welcome, 14, 34);
+        textArea = new JTextArea(welcome, 15, 38);
         textArea.setMargin(new Insets(10, 10, 10, 10));
         textArea.setFont(meiryoFont);
         textArea.setLineWrap(true);
@@ -153,7 +153,7 @@ public class ChatUI extends JFrame implements ActionListener {
         list.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
         list.setVisibleRowCount(8);
         list.setFont(meiryoFont);
-        list.setCellRenderer(new UserListCellRenderer());  // Set the custom cell renderer
+        list.setCellRenderer(new UserListCellRenderer());
 
         JScrollPane listScrollPane = new JScrollPane(list);
 
@@ -165,13 +165,19 @@ public class ChatUI extends JFrame implements ActionListener {
         sendButton = new JButton("Envoyer ");
         sendButton.addActionListener(this);
         sendButton.setEnabled(false);
+        sendButton.setBackground(Color.ORANGE);
+        sendButton.setForeground(Color.BLACK);
 
         privateMsgButton = new JButton("Msg prv");
         privateMsgButton.addActionListener(this);
         privateMsgButton.setEnabled(false);
+        privateMsgButton.setBackground(Color.CYAN);
+        privateMsgButton.setForeground(Color.BLACK);
 
         startButton = new JButton("Démarrer ");
         startButton.addActionListener(this);
+        startButton.setBackground(Color.GREEN);
+        startButton.setForeground(Color.BLACK);
 
         JPanel buttonPanel = new JPanel(new GridLayout(4, 1));
         buttonPanel.add(privateMsgButton);
@@ -242,12 +248,21 @@ public class ChatUI extends JFrame implements ActionListener {
             e.printStackTrace();
         }
     }
+
+    public void updateClientList(String[] clients) {
+        if (listModel != null) {
+            listModel.removeAllElements();
+            for (String client : clients) {
+                listModel.addElement(client);
+            }
+        }
+    }
 }
 
 class UserListCellRenderer extends DefaultListCellRenderer {
     private static final long serialVersionUID = 1L;
-    private static final Color DARK_PURPLE = new Color(75, 0, 130);
     private static final Color DARK_GREEN = new Color(0, 100, 0);
+    private static final Color RED = new Color(255, 0, 0);
     private static final int DOT_SIZE = 10;
 
     @Override
@@ -259,15 +274,21 @@ class UserListCellRenderer extends DefaultListCellRenderer {
         boolean cellHasFocus) {
 
         JLabel label = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
-        label.setHorizontalAlignment(SwingConstants.CENTER);
-        label.setForeground(DARK_PURPLE);
+        label.setHorizontalAlignment(SwingConstants.LEFT); 
+        label.setFont(new Font("Meiryo", Font.BOLD, 14)); 
+        label.setForeground(Color.BLACK);
+        label.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
         return label;
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.setColor(DARK_GREEN);
+        if (getText().equals("Aucun utilisateur")) {
+            g.setColor(RED);
+        } else {
+            g.setColor(DARK_GREEN);
+        }
         int x = getWidth() - DOT_SIZE - 5;
         int y = (getHeight() - DOT_SIZE) / 2;
         g.fillOval(x, y, DOT_SIZE, DOT_SIZE);
