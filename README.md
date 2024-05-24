@@ -122,6 +122,12 @@ For any questions or feedback, please reach out to us at:
   - Contact : [Email](mailto:ezhassan.info@gmail.com)
   - LinkedIn : [Profil LinkedIn](https://www.linkedin.com/in/elazzouzihassan/)
 
+- Yahia Ezzahri
+  - Contact : [Email](mailto:Yahiaezzahri@gmail.com)
+  - LinkedIn : [Profil LinkedIn](https://www.linkedin.com/in/yahia-ezzahri-3708b51b4?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)
 
+- Ettalbi Kabira
+  - Contact : [Email](mailto:kabiraettalbi@gmail.com)
+  - LinkedIn : [Profil LinkedIn](https://www.linkedin.com/in/kabira-ettalbi/)
 
 
