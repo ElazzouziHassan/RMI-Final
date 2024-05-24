@@ -1,42 +1,127 @@
-# Salle De Discussion 
-Une application de chat utilisant l'invocation de méthode à distance Java (RMI)
+# Simple Chat Application with Java RMI
 
-## Table des matières
+## Table of Contents
+
 - [Introduction](#introduction)
-- [Fonctionnalités](#fonctionnalités)
-- [Environnement de Développement](#environnement-de-développement)
+- [Features](#features)
+- [Architecture](#architecture)
 - [Installation](#installation)
-- [Utilisation](#utilisation)
-- [Contributions](#contributions)
-- [Licence](#licence)
+- [Usage](#usage)
+- [Technical Challenges](#technical-challenges)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
 ## Introduction
-- **Invocation de méthode à distance en Java**: 
 
-  L'invocation de méthode à distance (RMI) est une API qui permet à un objet d'invoquer une méthode sur un objet qui existe dans un autre espace d'adressage, qui peut se trouver sur la même machine ou sur une machine distante. Grâce à RMI, un objet exécuté dans une JVM présente sur un ordinateur (côté client) peut invoquer des méthodes sur un objet présent dans une autre JVM (côté serveur). RMI crée un objet serveur distant public qui permet les communications côté client et serveur via de simples appels de méthode sur l'objet serveur.
+Welcome to our Simple Chat Application developed using Java RMI. This project demonstrates a basic real-time chat system where users can interact through a centralized server. The application leverages Java RMI for efficient client-server communication, offering both public and private messaging functionalities.
 
-- Objet stub : l'objet stub sur la machine client crée un bloc d'informations et envoie ces informations au serveur.
+![Class Diagram](chat/public/assets/3-chats.png)
 
-  **Le bloc est composé de**
-  - Un identifiant de l'objet distant à utiliser
-  - Nom de la méthode à appeler
-  - Paramètres de la JVM distante
+## Features
 
-- Objet squelette : l'objet squelette transmet la demande de l'objet stub à l'objet distant. Il effectue les tâches suivantes
+- **Real-time Messaging**: Chat with other users in real time.
+- **Public and Private Messages**: Send messages to all users or privately to a specific user.
+- **User Nicknames**: Choose a nickname upon connection.
+- **Simple User Interface**: Easy-to-use interface for quick interaction.
+- **Join/Leave Chat**: Connect or disconnect from the chat server at any time.
 
-  - Il appelle la méthode souhaitée sur l'objet réel présent sur le serveur.
-  - Il transmet les paramètres reçus de l'objet stub à la méthode. 
+## Architecture
+
+The application follows a client-server architecture using Java RMI. Here's a brief overview:
+
+- **ChatServer**: Manages messaging logic and client connections.
+- **ChatClient**: Connects to the server and allows user interaction via a graphical interface.
+- **ChatUI**: Provides the graphical user interface for users.
+- **ConnectedClient**: Manages connected clients and facilitates private messaging.
+
+### UML Diagram
+![Class Diagram](chat/public/assets/classdiagramme.png)
+### RMI Architecture
+![RMI Architecture](chat/public/assets/diagrammedescasdutilisation.png)
 
 
-**Fonctionnement du RMI** :
-
-La communication entre le client et le serveur est gérée à l'aide de deux objets intermédiaires : l'objet Stub (côté client) et l'objet Skeleton (côté serveur), comme cela peut également être représenté à partir du support ci-dessous comme suit :
-
-![alt text](chat/public/assets/workingofRMI.jpg)
-
-## Fonctionnalités
-## Environnement de Développement
 ## Installation
-## Utilisation
-## Contributeurs
-## Licence
+
+### Prerequisites
+
+- Java Development Kit (JDK) 8 or higher
+- Apache Ant (optional, for building the project)
+
+### Steps
+
+1. **Clone the repository**
+
+```bash 
+  git clone git@github.com:ElazzouziHassan/RMI-Final.git
+```
+```bash
+  cd RMI-Final
+```
+
+2. **Compile the project**
+```bash
+javac -d bin src/**/*.java
+```
+3. **Start the RMI registry**
+```bash
+rmiregistry
+```
+4. **Run the server** 
+```bash
+java -cp bin server.ChatServer
+``` 
+4. **Run the client**  
+```bash
+java -cp bin client.ChatClient
+```
+
+**Note!**: That you can run the project after clonig it from you IDE following this steps:*
+1. Run `ChatServer.java` 
+2. Run `ChatUI.java`
+
+## Usage
+1. **Start the server**: Ensure the server is running and RMI registry is active.
+2. **Launch the client**: Open multiple clients to simulate multiple users.
+3. **Enter Nickname**: Enter a unique nickname for each client.
+4. **Send Messages**: Use the input field to send public or private messages.
+5. **Private Messaging**: select a specific user from the list , write your message and click the button "PRV MSG"
+
+## Echnical Challenges
+### Communication Issues
+ - **Challenge**: Ensuring reliable communication between clients and the server.
+ - **Solution**: Implementing Java RMI for direct and real-time communication.
+
+## Contributing
+We welcome contributions to enhance this project! Please follow these steps:
+
+1. **Fork the repository**
+2. **Create a new branch**
+```bash 
+git checkout -b feature/your-feature-name
+```
+3. **Make your changes**
+4. **Commit your changes**
+```bash
+  git commit -m "Add your feature"
+```
+5. **Push to your branch**
+```bash
+ git push origin feature/your-feature-name
+```
+6. **Create a Pull Request**
+
+## License
+This project has been developed for educational purposes and it is open source so anyone is free to use as he wish.
+
+## Contact
+For any questions or feedback, please reach out to us at:
+
+
+- El Azzouzi Hassan
+  - Contact : [Email](mailto:ezhassan.info@gmail.com)
+  - LinkedIn : [Profil LinkedIn](https://www.linkedin.com/in/elazzouzihassan/)
+
+
+
+
