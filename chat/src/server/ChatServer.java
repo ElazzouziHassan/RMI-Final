@@ -13,7 +13,7 @@ import client.IChatClient;
 
 public class ChatServer extends UnicastRemoteObject implements IChatServer {
   
-  String line = "≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛\n";
+  String line = "☏≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛☏\n";
   private Vector<ConnectedClient> connectedClients;
 	private static final long serialVersionUID = 1L;
 
@@ -35,17 +35,17 @@ public class ChatServer extends UnicastRemoteObject implements IChatServer {
 		try{
 			IChatServer hello = new ChatServer();
 			Naming.rebind("rmi://" + host + "/" + service, hello);
-			System.out.println("Group Chat RMI Server is running...");
+			System.out.println("Le serveur RMI est en cours d'écoute...");
 		}
 		catch(Exception e){
-			System.out.println("Server had problems starting");
+			System.out.println("err! server probléme");
 		}	
 	}
 
   private static void startRMIRegistry() {
     try{
 			java.rmi.registry.LocateRegistry.createRegistry(1099);
-			System.out.println("RMI Server ready");
+			System.out.println("le serveur et prêt");
 		}
 		catch(RemoteException e) {
 			e.printStackTrace();
