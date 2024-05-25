@@ -88,7 +88,7 @@ public class ChatUI extends JFrame implements ActionListener {
         frame.add(c);
         frame.pack();
         frame.setAlwaysOnTop(true);
-        frame.setLocation(150, 150);
+        frame.setLocation(500, 300);
         textField.requestFocus();
 
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -162,19 +162,19 @@ public class ChatUI extends JFrame implements ActionListener {
     }
 
     public JPanel makeButtonPanel() {
-        sendButton = new JButton("Envoyer ");
+        sendButton = new JButton(" Envoyer ");
         sendButton.addActionListener(this);
         sendButton.setEnabled(false);
         sendButton.setBackground(Color.ORANGE);
         sendButton.setForeground(Color.BLACK);
 
-        privateMsgButton = new JButton("Msg prv");
+        privateMsgButton = new JButton(" Msg Privé ");
         privateMsgButton.addActionListener(this);
         privateMsgButton.setEnabled(false);
         privateMsgButton.setBackground(Color.CYAN);
         privateMsgButton.setForeground(Color.BLACK);
 
-        startButton = new JButton("Démarrer ");
+        startButton = new JButton(" Démarrer ");
         startButton.addActionListener(this);
         startButton.setBackground(Color.GREEN);
         startButton.setForeground(Color.BLACK);
@@ -194,7 +194,7 @@ public class ChatUI extends JFrame implements ActionListener {
             if (e.getSource() == startButton) {
                 name = textField.getText();
                 if (name.length() != 0) {
-                    frame.setTitle(name + "'salle de discussion ");
+                    frame.setTitle(name + " 'salle de discussion ");
                     textField.setText("");
                     textArea.append("utilisateur : " + name + " connexion à...\n");
                     getConnected(name);

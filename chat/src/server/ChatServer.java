@@ -13,7 +13,7 @@ import client.IChatClient;
 
 public class ChatServer extends UnicastRemoteObject implements IChatServer {
   
-  String line = "---------------------------------------------\n";
+  String line = "≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛≛\n";
   private Vector<ConnectedClient> connectedClients;
 	private static final long serialVersionUID = 1L;
 
