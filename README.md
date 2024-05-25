@@ -76,7 +76,7 @@ java -cp bin server.ChatServer
 java -cp bin client.ChatClient
 ```
 
-**Note!**: That you can run the project after clonig it from you IDE following this steps:*
+**Note!**: After clonig the project, then from you IDE do the following this steps:
 1. Run `ChatServer.java` 
 2. Run `ChatUI.java`
 
